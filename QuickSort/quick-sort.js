@@ -14,6 +14,15 @@ function partition(arr, start = 0, end = arr.length - 1) {
     return pivotIndex;
 }
 
+function quickSort(arr, start = 0, end = arr.length - 1) {
+    if (start < end) {
+        const pivotIndex = partition(arr, start, end);
+        quickSort(arr, start, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, end);
+    }
+    return arr;
+}
+
 function swap(arr, i, j) {
     const temp = arr[i];
     arr[i] = arr[j];
